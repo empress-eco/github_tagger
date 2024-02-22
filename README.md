@@ -1,69 +1,77 @@
-# tagger
-A simple Flask app to automatically label GitHub PRs.
+<p align="center">
+  <a href="https://github.com/empress-eco/github_tagger">
+    <img src="https://grow.empress.eco/uploads/default/original/2X/1/1f1e1044d3864269d2a613577edb9763890422ab.png" alt="Logo" width="80" height="80">
+  </a>
 
+  <p align="center">
+    A user-friendly Flask app that automatically labels your GitHub Pull Requests.
+    <br />
+    <a href="https://empress.eco/"><strong>Explore the Website »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/empress-eco/github_tagger/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/empress-eco/github_tagger/issues">Request Feature</a>
+  </p>
+</p>
 
----
+## About The Project
 
+**Github Tagger** is a lightweight and efficient Flask application designed to automate the labeling of your GitHub Pull Requests (PRs). This intuitive tool is perfect for developers handling multiple GitHub repositories who need an efficient, automated system to categorize their PRs.
 
-### Create a GitHub Webhook:
-1. Set Payload URL to your intended server (e.g. `http://123.231.123.231:8000`).
-2. Set Content Type to `application/json`.
-3. Set the secret key to whatever you like (we'll use this later).
-4. Configure the webhook to trigger on Status events.
-5. We can save the webhook now.
+### Key Features
+- Automatic PR labeling
+- Easy integration with GitHub via Webhooks
+- Configurable via a local environment or server
 
+### Built With
+Github Tagger is built using the Flask framework, known for its lightweight, user-friendly structure, and high efficiency.
 
----
+## Technical Stack and Setup Instructions
 
+### Prerequisites
+Ensure you have Python 3 installed on your system to set up a local environment or server for Github Tagger.
 
-### Setting up a local environment:
+### Installation
+Use the following steps to clone the repository, set up a virtual environment, install requirements, create a config.json file, and run Flask to listen for webhook calls.
 
-1. Clone this repository in your desired location:
-```
-git clone https://github.com/erpnext/tagger
-```
+```sh
+# Clone the repository
+git clone https://github.com/empress-eco/github_tagger.git
 
-2. Change working directory:
-```
-cd tagger
-```
+# Change working directory
+cd github_tagger
 
-
-3. Create a virtual enviroment using Python 3:
-```
+# Create a virtual environment using Python 3
 python3 -m venv .venv
-```
 
-4. Activate virtual environment:
-```
+# Activate virtual environment
 source .venv/bin/activate
-```
 
-5. Install requirements:
-```
+# Install requirements
 pip install -r requirements.txt
-```
 
-6. Create a config.json file with following keys:
-- `request_secret`: The secret code you used while setting up a webhook.
-- `gh_user`: Github username using which PRs will be tagged automatically.
-- `gh_pass`: Password for the username specified above.
-
-7. Run flask to listen for webhook calls:
-```
+# Run flask to listen for webhook calls
 export FLASK_APP=tagger
 flask run -h 0.0.0.0 -p 8000 --reload --debugger
 ```
 
---- 
-### Setting up a server to listen to webhook events:
+## Usage
+After setting up a local environment or server, create a GitHub Webhook that triggers on Status events and sends data to your server. Github Tagger will then automatically label your PRs based on the received data, providing a streamlined and automated labeling process.
 
-1. Follow steps 1 - 6 in the section titled `Setting up a local environment`.
-2. If you choose to use Ubuntu 18.04 LTS, uWSGI and Nginx for your purposes, [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04) is recommended.
-3. Tagger runs as a service, you can use the following commands to check it's status or restart it after an update.
-  
-    ```
-    sudo service tagger status
+## Contribution Guidelines
+We welcome and appreciate contributions! Here's how you can contribute:
 
-    sudo service tagger restart
-    ```
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License and Acknowledgements
+
+### License
+This project is under the MIT License. All contributions are also licensed under the MIT License.
+
+### Acknowledgements
+Special thanks to the Empress Community for their foundational contributions to the essential tools that power this project. Their innovation and dedication have been instrumental in building the functionalities we rely on. We deeply appreciate their pioneering work and ongoing support.
